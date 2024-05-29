@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : addform
     Created on : 13 de nov. 2023, 16:30:44
     Author     : alumne_2n
@@ -16,9 +16,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Error de formato, porfavor introduce los datos correctamente</h1>
-        
-              <a href="JuegosServlet">Salir</a>
-
+        <h1>Wrong format lmao</h1>
+        <a href="JuegosServlet">Exit</a>
     </body>
 </html>

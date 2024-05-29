@@ -9,6 +9,7 @@ package institutmvmdaw.dwes_mvc;
  * @author manuc
  */
 public class Juegos {
+
     private int id;
     private String name;
     private float price;
@@ -26,8 +27,8 @@ public class Juegos {
         this.genere = genere;
         this.valoracion = valoracion;
     }
-    
-    public Juegos(){
+
+    public Juegos() {
         this.id = -1;
         this.name = "";
         this.price = 0f;
@@ -52,36 +53,43 @@ public class Juegos {
     public void setDeveloper(String developer) {
         this.developer = developer;
     }
-    
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
- 
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
- 
+
     public float getPrice() {
         return price;
     }
+
     public void setPrice(float price) {
         this.price = price;
     }
+
     public float getValoracion() {
         return valoracion;
     }
+
     public void setValoracion(float valoracion) {
         this.valoracion = valoracion;
     }
+
     public String getGenere() {
         return genere;
     }
+
     public void setGenere(String genere) {
         this.genere = genere;
     }

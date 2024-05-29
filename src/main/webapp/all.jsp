@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : producto.jsp
     Created on : 11 nov 2022, 0:21:15
     Author     : manuc
@@ -17,7 +17,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cosiñas</title>
+        <title>SuperMandanga2024</title>
         <link rel="stylesheet" href="css.css">
     </head>
     <body>
@@ -29,11 +29,10 @@
         <div>Price: $ <%= new DecimalFormat("#0.00").format(juego.getPrice())%></div>
         <div>Year: <%= juego.getYear()%></div>
         <div><a href="JuegosServlet?developer=<%= juego.getDeveloper()%>&action=filtro">Developer: <%= juego.getDeveloper()%></a></div>
-        <div>Gènere: <%= juego.getGenere()%></div>
-        <div>Valoración: <%= new DecimalFormat("#0.00").format(juego.getValoracion())%></div>
+        <div>Genre: <%= juego.getGenere()%></div>
+        <div>Rating: <%= new DecimalFormat("#0.00").format(juego.getValoracion())%></div>
         <div><a href="JuegosServlet">Go Back</a></div>
         <% } %>
-        
-            
+
     </body>
 </html>

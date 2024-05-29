@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : addform
     Created on : 13 de nov. 2023, 16:30:44
     Author     : alumne_2n
@@ -16,7 +16,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Add Form</h1>
+        <h1>Add a new SuperMandanga2024</h1>
 
         <% for (Juegos juego : (List<Juegos>) request.getAttribute("games_list")) {%>
         <table>

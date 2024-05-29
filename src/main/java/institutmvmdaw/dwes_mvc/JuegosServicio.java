@@ -5,8 +5,6 @@
 package institutmvmdaw.dwes_mvc;
 
 import java.util.List;
-import java.util.ArrayList;
-import institutmvmdaw.dwes_mvc.JuegosDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,10 +14,9 @@ import java.util.logging.Logger;
  */
 public class JuegosServicio {
 
-
     JuegosDAO juegosDAOservice = new JuegosDAO();
     int contJuegos = 0;
-    
+
     public List<Juegos> getJuegos() {
         return juegosDAOservice.findAllJuegos();
     }
@@ -29,14 +26,13 @@ public class JuegosServicio {
      * @param id
      * @return
      */
-    public Juegos getJuego(int id){
+    public Juegos getJuego(int id) {
         Juegos juego = null;
         try {
             juego = juegosDAOservice.findJuegoById(id);
         } catch (Exception ex) {
             Logger.getLogger(JuegosServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
 
         return juego;
     }
@@ -51,6 +47,7 @@ public class JuegosServicio {
         }
 
     }
+
     public void updateProduct(int id, String name, float price, int year, String developer, String genere, float valoracion) {
         try {
             juegosDAOservice.updateUser(id, name, price, year, developer, genere, valoracion);
@@ -63,7 +60,7 @@ public class JuegosServicio {
     public void deleteGame(int id) {
         Juegos juego = null;
         List<Juegos> listaJuegos = juegosDAOservice.findAllJuegos();
-        
+
         for (int i = 0; i < listaJuegos.size(); i++) {
             if (listaJuegos.get(i).getId() == id) {
                 juego = listaJuegos.get(i);
@@ -89,8 +86,6 @@ public class JuegosServicio {
         deleteGame(id);
         updateProduct(id, name, price, year, developer, genere, valoracion);
 
-
     }
 
 }
-

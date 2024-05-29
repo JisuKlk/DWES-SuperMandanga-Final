@@ -8,6 +8,6 @@ CREATE TABLE juegos(
     valoracion FLOAT
 );
 
-INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('Factorio', 32, 2020, 'Wube Software LTD', 'Automatización', 1);
-INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('Dont Starve Together', 32, 2020, 'Wube Software LTD', 'Automatización', 1);
-INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('Oxygen Not Included', 32, 2020, 'Wube Software LTD', 'Automatización', 1);
+INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('Dead by Daylight', 19, 2016, 'Behaviour Interactive Inc.', 'Survival', 1);
+INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('South Park: The Stick of Truth', 29, 2014, 'Obsidian Entertainment', 'RPG', 1);
+INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('Monster Hunter: World', 29, 2018, 'CAPCOM', 'RPG', 1);
