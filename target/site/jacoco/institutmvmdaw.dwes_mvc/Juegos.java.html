@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Juegos.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UF1_Final_Ayman-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">institutmvmdaw.dwes_mvc</a> &gt; <span class="el_source">Juegos.java</span></div><h1>Juegos.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package institutmvmdaw.dwes_mvc;
+
+/**
+ *
+ * @author manuc
+ */
+public class Juegos {
+    private int id;
+    private String name;
+    private float price;
+    private int year;
+    private String developer;
+    private String genere;
+    private float valoracion;
+
+<span class="fc" id="L20">    public Juegos(int id, String name, float price, int year, String developer, String genere, float valoracion) {</span>
+<span class="fc" id="L21">        this.id = id;</span>
+<span class="fc" id="L22">        this.name = name;</span>
+<span class="fc" id="L23">        this.price = price;</span>
+<span class="fc" id="L24">        this.year = year;</span>
+<span class="fc" id="L25">        this.developer = developer;</span>
+<span class="fc" id="L26">        this.genere = genere;</span>
+<span class="fc" id="L27">        this.valoracion = valoracion;</span>
+<span class="fc" id="L28">    }</span>
+    
+<span class="nc" id="L30">    public Juegos(){</span>
+<span class="nc" id="L31">        this.id = -1;</span>
+<span class="nc" id="L32">        this.name = &quot;&quot;;</span>
+<span class="nc" id="L33">        this.price = 0f;</span>
+<span class="nc" id="L34">        this.year = 0;</span>
+<span class="nc" id="L35">        this.developer = &quot;&quot;;</span>
+<span class="nc" id="L36">        this.genere = &quot;&quot;;</span>
+<span class="nc" id="L37">        this.valoracion = 0;</span>
+<span class="nc" id="L38">    }</span>
+
+    public int getYear() {
+<span class="nc" id="L41">        return year;</span>
+    }
+
+    public void setYear(int year) {
+<span class="nc" id="L45">        this.year = year;</span>
+<span class="nc" id="L46">    }</span>
+
+    public String getDeveloper() {
+<span class="nc" id="L49">        return developer;</span>
+    }
+
+    public void setDeveloper(String developer) {
+<span class="nc" id="L53">        this.developer = developer;</span>
+<span class="nc" id="L54">    }</span>
+    
+    public int getId() {
+<span class="nc" id="L57">        return id;</span>
+    }
+    public void setId(int id) {
+<span class="nc" id="L60">        this.id = id;</span>
+<span class="nc" id="L61">    }</span>
+ 
+    public String getName() {
+<span class="nc" id="L64">        return name;</span>
+    }
+    public void setName(String name) {
+<span class="nc" id="L67">        this.name = name;</span>
+<span class="nc" id="L68">    }</span>
+ 
+    public float getPrice() {
+<span class="nc" id="L71">        return price;</span>
+    }
+    public void setPrice(float price) {
+<span class="nc" id="L74">        this.price = price;</span>
+<span class="nc" id="L75">    }</span>
+    public float getValoracion() {
+<span class="nc" id="L77">        return valoracion;</span>
+    }
+    public void setValoracion(float valoracion) {
+<span class="nc" id="L80">        this.valoracion = valoracion;</span>
+<span class="nc" id="L81">    }</span>
+    public String getGenere() {
+<span class="nc" id="L83">        return genere;</span>
+    }
+    public void setGenere(String genere) {
+<span class="nc" id="L86">        this.genere = genere;</span>
+<span class="nc" id="L87">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

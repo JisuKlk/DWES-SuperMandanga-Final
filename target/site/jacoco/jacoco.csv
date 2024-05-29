@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+UF1_Final_Ayman-1.0-SNAPSHOT,institutmvmdaw.connection,DBConnection,3,63,2,2,2,19,2,2,0,2
+UF1_Final_Ayman-1.0-SNAPSHOT,com.mycompany.uf1_final_ayman.resources,JakartaEE8Resource,7,0,0,0,4,0,2,0,2,0
+UF1_Final_Ayman-1.0-SNAPSHOT,institutmvmdaw.dwes_mvc,JuegosDAO,164,178,5,7,31,43,12,12,8,10
+UF1_Final_Ayman-1.0-SNAPSHOT,institutmvmdaw.dwes_mvc,JuegosServlet,324,0,11,0,74,0,13,0,5,0
+UF1_Final_Ayman-1.0-SNAPSHOT,institutmvmdaw.dwes_mvc,Juegos,73,24,0,0,30,9,15,1,15,1
+UF1_Final_Ayman-1.0-SNAPSHOT,institutmvmdaw.dwes_mvc,JuegosServicio,172,0,8,0,40,0,11,0,7,0
+UF1_Final_Ayman-1.0-SNAPSHOT,com.mycompany.uf1_final_ayman,JakartaRestConfiguration,3,0,0,0,1,0,1,0,1,0

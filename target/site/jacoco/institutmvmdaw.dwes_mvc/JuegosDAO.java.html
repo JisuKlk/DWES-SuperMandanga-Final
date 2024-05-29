@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JuegosDAO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">UF1_Final_Ayman-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">institutmvmdaw.dwes_mvc</a> &gt; <span class="el_source">JuegosDAO.java</span></div><h1>JuegosDAO.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package institutmvmdaw.dwes_mvc;
+
+import institutmvmdaw.connection.DBConnection;
+import java.util.List;
+import institutmvmdaw.dwes_mvc.Juegos;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+/**
+ *
+ * @author alumne_2n
+ */
+public class JuegosDAO {
+    
+    private DBConnection dBConnection;
+    private Connection connection;
+    
+    public DBConnection getDBConnection() {
+<span class="nc" id="L27">        return this.dBConnection;</span>
+    }
+    
+<span class="nc" id="L30">    public JuegosDAO() {</span>
+<span class="nc" id="L31">        this.dBConnection = new DBConnection(&quot;db-test.properties&quot;);</span>
+<span class="nc" id="L32">    }</span>
+    
+    
+<span class="fc" id="L35">    public JuegosDAO(DBConnection dBConnection) {</span>
+<span class="fc" id="L36">        this.dBConnection = dBConnection;</span>
+<span class="fc" id="L37">    }</span>
+    
+    private Juegos findUniqueResult(String query) throws Exception {
+<span class="fc" id="L40">        List&lt;Juegos&gt; users = executeQuery(query);</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (users.isEmpty()) {</span>
+<span class="nc" id="L42">            return null;</span>
+        }
+<span class="pc bpc" id="L44" title="1 of 2 branches missed.">        if (users.size() &gt; 1) {</span>
+<span class="fc" id="L45">            throw new Exception(&quot;Only one result expected&quot;);</span>
+        }
+<span class="nc" id="L47">        return users.get(0);</span>
+    }
+    
+    private List&lt;Juegos&gt; executeQuery(String query) {
+<span class="fc" id="L51">        List&lt;Juegos&gt; listaJuegos = new ArrayList&lt;&gt;();</span>
+
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (getConnection() == null) {</span>
+            try {
+<span class="fc" id="L55">                setConnection(dBConnection.getConnection());</span>
+<span class="nc" id="L56">            } catch (SQLException | IOException e) {</span>
+<span class="nc" id="L57">                e.printStackTrace();</span>
+<span class="fc" id="L58">            }</span>
+        }
+        try (
+<span class="fc" id="L61">                Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery(query)) {</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">            while (rs.next()) {</span>
+<span class="fc" id="L63">                Juegos Juego = buildUserFromResultSet(rs);</span>
+<span class="fc" id="L64">                listaJuegos.add(Juego);</span>
+<span class="fc" id="L65">            }</span>
+<span class="nc" id="L66">        } catch (SQLException e) {</span>
+<span class="nc" id="L67">            e.printStackTrace();</span>
+<span class="fc" id="L68">        }</span>
+<span class="fc" id="L69">        return listaJuegos;</span>
+    }
+    
+    public Connection getConnection() {
+<span class="fc" id="L73">        return connection;</span>
+    }
+    public void setConnection(Connection connection) {
+<span class="fc" id="L76">        this.connection = connection;</span>
+<span class="fc" id="L77">    }</span>
+    
+    public List&lt;Juegos&gt; findAllJuegos() {
+<span class="fc" id="L80">    	String qry = &quot;select id, name, price, year, developer, genere, valoracion from juegos&quot;;</span>
+<span class="fc" id="L81">        List&lt;Juegos&gt; listaJuegos = executeQuery(qry);</span>
+<span class="fc" id="L82">        return listaJuegos;</span>
+    }
+    
+    public Juegos findJuegoById(int id) throws Exception{
+<span class="nc" id="L86">        String qry = &quot;select * from juegos where id ='&quot; + id + &quot;'&quot;;</span>
+<span class="nc" id="L87">        return findUniqueResult(qry);</span>
+    }
+    
+    public Juegos findJuegoByYear(String juegoYear) throws Exception {
+<span class="nc" id="L91">        String qry = &quot;select * from juegos where year ='&quot; + juegoYear + &quot;'&quot;;</span>
+<span class="nc" id="L92">        return findUniqueResult(qry);</span>
+    }
+    
+    public Juegos findJuegoByName(String name) throws Exception {
+<span class="fc" id="L96">        String qry = &quot;select * from juegos where name ='&quot; + name + &quot;'&quot;;</span>
+<span class="nc" id="L97">        return findUniqueResult(qry);</span>
+    }
+    
+    private Juegos buildUserFromResultSet(ResultSet rs) throws SQLException {
+<span class="fc" id="L101">        int id = rs.getInt(&quot;id&quot;);</span>
+<span class="fc" id="L102">        String name = rs.getString(&quot;name&quot;);</span>
+<span class="fc" id="L103">        float price = rs.getFloat(&quot;price&quot;);</span>
+<span class="fc" id="L104">        int year = rs.getInt(&quot;year&quot;);</span>
+<span class="fc" id="L105">        String developer = rs.getString(&quot;developer&quot;);</span>
+<span class="fc" id="L106">        String genere = rs.getString(&quot;genere&quot;);</span>
+<span class="fc" id="L107">        float valoracion = rs.getFloat(&quot;valoracion&quot;);        </span>
+<span class="fc" id="L108">        Juegos juego = new Juegos(id, name, price, year, developer, genere, valoracion);</span>
+<span class="fc" id="L109">        return juego;</span>
+    }
+    
+    private Juegos createOrUpdateJuego(String name, String query) throws Exception {
+<span class="nc" id="L113">        int result = executeUpdateQuery(query);</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (result == 0) {</span>
+<span class="nc" id="L115">            throw new Exception(&quot;Error creating user&quot;);</span>
+        }
+<span class="nc" id="L117">        return findJuegoByName(name);</span>
+    }
+    
+    public Juegos createUser(String name, float price, int year, String developer, String genere, float valoracion) throws Exception {
+<span class="fc" id="L121">        String qry = &quot;INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('&quot;</span>
+                + name + &quot;', '&quot;
+                + price + &quot;', '&quot;
+                + year + &quot;', '&quot;
+                + developer + &quot;', '&quot;
+                + genere + &quot;', '&quot;
+                + valoracion + &quot;'&quot;
+                + &quot;);&quot;;
+<span class="nc" id="L129">        return createOrUpdateJuego(name, qry);</span>
+    }
+    
+    public Juegos updateUser(int id, String name, float price, int year, String developer, String genere, float valoracion) throws Exception {
+<span class="nc" id="L133">        String qry = &quot;INSERT INTO juegos (id, name, price, year, developer, genere, valoracion) VALUES ('&quot;</span>
+                + id + &quot;', '&quot;
+                + name + &quot;', '&quot;
+                + price + &quot;', '&quot;
+                + year + &quot;', '&quot;
+                + developer + &quot;', '&quot;
+                + genere + &quot;', '&quot;
+                + valoracion + &quot;'&quot;
+                + &quot;);&quot;;
+<span class="nc" id="L142">        return createOrUpdateJuego(name, qry);</span>
+    }
+    
+    private int executeUpdateQuery(String query) {
+<span class="fc" id="L146">        int result = 0;</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">        if (getConnection() == null) {</span>
+            try {
+<span class="fc" id="L149">                setConnection(dBConnection.getConnection());</span>
+<span class="nc" id="L150">            } catch (SQLException | IOException e) {</span>
+<span class="nc" id="L151">                e.printStackTrace();</span>
+<span class="fc" id="L152">            }</span>
+        }
+        try (
+<span class="fc" id="L155">                Statement stmt = getConnection().createStatement()) {</span>
+<span class="fc" id="L156">            result = stmt.executeUpdate(query);</span>
+<span class="nc" id="L157">        } catch (SQLException e) {</span>
+<span class="nc" id="L158">            e.printStackTrace();</span>
+<span class="fc" id="L159">        }</span>
+<span class="fc" id="L160">        return result;</span>
+    }
+    
+    public Juegos updateUserEmail(String name, String newYear) throws Exception {
+<span class="nc" id="L164">        String qry = &quot;UPDATE juegos &quot;</span>
+                + &quot;SET year = '&quot; + newYear + &quot;' &quot;
+                + &quot;WHERE name = '&quot; + name + &quot;' &quot;
+                + &quot;;&quot;;
+<span class="nc" id="L168">        return createOrUpdateJuego(name, qry);</span>
+    }
+    
+    public void deleteJuego(Juegos juego) throws Exception {
+<span class="nc" id="L172">        String query = &quot;DELETE FROM juegos WHERE id = '&quot; + juego.getId() + &quot;' &quot;;</span>
+<span class="nc" id="L173">        createOrUpdateJuego(juego.getName(), query);</span>
+<span class="nc" id="L174">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
