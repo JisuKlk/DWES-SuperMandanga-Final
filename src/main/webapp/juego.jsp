@@ -31,7 +31,7 @@
         <div>Name: <%= juegos.getName()%></div>
         <div>Price: $ <%= new DecimalFormat("#0.00").format(juegos.getPrice())%></div>
         <div>Year: <%= juegos.getYear()%></div>
-        <div><a href="JuegosServlet?developer=<%= juegos.getDeveloper()%>&action=filtro">Developer: <%= juegos.getDeveloper()%></a></div>
+        <div>Developer: <%= juegos.getDeveloper()%></a></div>
         <div>Genre: <%= juegos.getGenere()%></div>
         <div>Rating: <%= new DecimalFormat("#0.00").format(juegos.getValoracion())%></div>
         <div><a href="JuegosServlet">Go Back</a></div>
