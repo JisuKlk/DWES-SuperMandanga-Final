@@ -28,8 +28,8 @@
                <tr><td>Price</td></tr><tr><td><input type="text" name="price" value="<%= juegos.getPrice()%>"></td></tr>
                <tr><td>Year</td></tr><tr><td><input type="text" name="year" value="<%= juegos.getYear()%>"></td></tr>
                <tr><td>Developer</td></tr><tr><td><input type="text" name="developer" value="<%= juegos.getDeveloper()%>"></td></tr>
-               <tr><td>Genre</td></tr><tr><td><input type="text" name="genere" value="<%= juegos.getGenere()%>"></td></tr>
-               <tr><td>Rating</td></tr><tr><td><input type="text" name="valoracion" value="<%= juegos.getValoracion()%>></td></tr>
+               <tr><td>Genre</td></tr><tr><td><input type="text" name="genre" value="<%= juegos.getGenre()%>"></td></tr>
+               <tr><td>Rating</td></tr><tr><td><input type="text" name="rating" value="<%= juegos.getRating()%>></td></tr>
                </table>
                <input type="hidden" name="id" value="<%= juegos.getId()%>">
                <input type="hidden" name="action" value="updateId">

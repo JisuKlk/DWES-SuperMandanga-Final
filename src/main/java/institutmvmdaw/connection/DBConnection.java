@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBConnection {
-     
+
     private String connectionFile;
 
     public DBConnection(String connectionFile) {
@@ -33,7 +33,7 @@ public class DBConnection {
                 con = DriverManager.getConnection(props.getProperty("DB_URL"),
                         props.getProperty("DB_USERNAME"),
                         props.getProperty("DB_PASSWORD"));
-               
+
             }
         } catch (IOException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();

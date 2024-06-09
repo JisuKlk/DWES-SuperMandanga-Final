@@ -20,8 +20,8 @@
                <tr><td>Price</td></tr><tr><td><input type="text" name="price"></td></tr>
                <tr><td>Year</td></tr><tr><td><input type="text" name="year"></td></tr>
                <tr><td>Developer</td></tr><tr><td><input type="text" name="developer"></td></tr>
-               <tr><td>Genre</td></tr><tr><td><input type="text" name="genere"></td></tr>
-               <tr><td>Rating</td></tr><tr><td><input type="text" name="valoracion"></td></tr>
+               <tr><td>Genre</td></tr><tr><td><input type="text" name="genre"></td></tr>
+               <tr><td>Rating</td></tr><tr><td><input type="text" name="rating"></td></tr>
                </table>
             <input type="hidden" name="action" value="add">
             <input type="submit" name="submit" value="add">

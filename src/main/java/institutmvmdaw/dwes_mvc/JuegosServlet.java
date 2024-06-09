@@ -4,11 +4,9 @@
  */
 package institutmvmdaw.dwes_mvc;
 
-import institutmvmdaw.dwes_mvc.JuegosServicio;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,17 +17,17 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alumne_2n
  */
-@WebServlet(name = "JuegosServlet", urlPatterns = {"/JuegosServlet"})
+@WebServlet(name = "JuegosServlet", urlPatterns = { "/JuegosServlet" })
 public class JuegosServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     JuegosServicio service = new JuegosServicio();
 
@@ -50,7 +48,8 @@ public class JuegosServlet extends HttpServlet {
         } else {
             switch (action) {
                 case "addform":
-                    getServletConfig().getServletContext().getRequestDispatcher("/addform.jsp").forward(request, response);
+                    getServletConfig().getServletContext().getRequestDispatcher("/addform.jsp").forward(request,
+                            response);
                     break;
                 case "add": {
                     try {
@@ -58,14 +57,16 @@ public class JuegosServlet extends HttpServlet {
                         float price = Float.parseFloat(request.getParameter("price"));
                         int year = Integer.parseInt(request.getParameter("year"));
                         String developer = request.getParameter("developer");
-                        String genere = request.getParameter("genere");
-                        float valoracion = Float.parseFloat(request.getParameter("valoracion"));
-                        service.addProduct(name, price, year, developer, genere, valoracion);
+                        String genre = request.getParameter("genre");
+                        float rating = Float.parseFloat(request.getParameter("rating"));
+                        service.addProduct(name, price, year, developer, genre, rating);
                         request.setAttribute("games_list", service.getJuegos());
-                        getServletConfig().getServletContext().getRequestDispatcher("/juego.jsp").forward(request, response);
+                        getServletConfig().getServletContext().getRequestDispatcher("/juego.jsp").forward(request,
+                                response);
                         break;
                     } catch (NumberFormatException e) {
-                        getServletConfig().getServletContext().getRequestDispatcher("/addformError.jsp").forward(request, response);
+                        getServletConfig().getServletContext().getRequestDispatcher("/addformError.jsp")
+                                .forward(request, response);
                     }
                 }
                 case "delete": {
@@ -73,14 +74,16 @@ public class JuegosServlet extends HttpServlet {
                     int id = Integer.parseInt(value);
                     service.deleteGame(id);
                     request.setAttribute("games_list", service.getJuegos());
-                    getServletConfig().getServletContext().getRequestDispatcher("/juego.jsp").forward(request, response);
+                    getServletConfig().getServletContext().getRequestDispatcher("/juego.jsp").forward(request,
+                            response);
                     break;
                 }
                 case "update": {
                     String value = request.getParameter("id");
                     int id = Integer.parseInt(value);
                     request.setAttribute("single_game", service.getJuego(id));
-                    getServletConfig().getServletContext().getRequestDispatcher("/addform_1.jsp").forward(request, response);
+                    getServletConfig().getServletContext().getRequestDispatcher("/addform_1.jsp").forward(request,
+                            response);
                     break;
                 }
                 case "updateId": {
@@ -90,17 +93,19 @@ public class JuegosServlet extends HttpServlet {
                         float price = Float.parseFloat(request.getParameter("price"));
                         int year = Integer.parseInt(request.getParameter("year"));
                         String developer = request.getParameter("developer");
-                        String genere = request.getParameter("genere");
-                        float valoracion = Float.parseFloat(request.getParameter("valoracion"));
-                        service.updateGame(id, name, price, year, developer, genere, valoracion);
+                        String genre = request.getParameter("genre");
+                        float rating = Float.parseFloat(request.getParameter("rating"));
+                        service.updateGame(id, name, price, year, developer, genre, rating);
                         request.setAttribute("games_list", service.getJuegos());
-                        getServletConfig().getServletContext().getRequestDispatcher("/juego.jsp").forward(request, response);
+                        getServletConfig().getServletContext().getRequestDispatcher("/juego.jsp").forward(request,
+                                response);
                         break;
                     } catch (NumberFormatException e) {
                         String value = request.getParameter("id");
                         int id = Integer.parseInt(value);
                         request.setAttribute("single_game", service.getJuego(id));
-                        getServletConfig().getServletContext().getRequestDispatcher("/addform_1Error.jsp").forward(request, response);
+                        getServletConfig().getServletContext().getRequestDispatcher("/addform_1Error.jsp")
+                                .forward(request, response);
                     }
                 }
                 case "all":
@@ -115,7 +120,6 @@ public class JuegosServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -128,14 +132,15 @@ public class JuegosServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -146,10 +151,10 @@ public class JuegosServlet extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -15,17 +15,17 @@ public class Juegos {
     private float price;
     private int year;
     private String developer;
-    private String genere;
-    private float valoracion;
+    private String genre;
+    private float rating;
 
-    public Juegos(int id, String name, float price, int year, String developer, String genere, float valoracion) {
+    public Juegos(int id, String name, float price, int year, String developer, String genre, float rating) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.year = year;
         this.developer = developer;
-        this.genere = genere;
-        this.valoracion = valoracion;
+        this.genre = genre;
+        this.rating = rating;
     }
 
     public Juegos() {
@@ -34,8 +34,8 @@ public class Juegos {
         this.price = 0f;
         this.year = 0;
         this.developer = "";
-        this.genere = "";
-        this.valoracion = 0;
+        this.genre = "";
+        this.rating = 0;
     }
 
     public int getYear() {
@@ -78,19 +78,19 @@ public class Juegos {
         this.price = price;
     }
 
-    public float getValoracion() {
-        return valoracion;
+    public float getRating() {
+        return rating;
     }
 
-    public void setValoracion(float valoracion) {
-        this.valoracion = valoracion;
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenre(String genre) {;
+        this.genre = genre;
     }
 }

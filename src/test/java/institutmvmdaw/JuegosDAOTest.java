@@ -18,10 +18,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author dwes
- */
 public class JuegosDAOTest {
 /*
     private DBConnection dBConnection;

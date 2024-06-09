@@ -57,7 +57,8 @@ public class JuegosDAO {
             }
         }
         try (
-                Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+                Statement stmt = getConnection().createStatement();
+                ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 Juegos Juego = buildUserFromResultSet(rs);
                 listaJuegos.add(Juego);
@@ -77,7 +78,7 @@ public class JuegosDAO {
     }
 
     public List<Juegos> findAllJuegos() {
-        String qry = "select id, name, price, year, developer, genere, valoracion from juegos";
+        String qry = "select id, name, price, year, developer, genre, rating from juegos";
         List<Juegos> listaJuegos = executeQuery(qry);
         return listaJuegos;
     }
@@ -103,9 +104,9 @@ public class JuegosDAO {
         float price = rs.getFloat("price");
         int year = rs.getInt("year");
         String developer = rs.getString("developer");
-        String genere = rs.getString("genere");
-        float valoracion = rs.getFloat("valoracion");
-        Juegos juego = new Juegos(id, name, price, year, developer, genere, valoracion);
+        String genre = rs.getString("genre");
+        float rating = rs.getFloat("rating");
+        Juegos juego = new Juegos(id, name, price, year, developer, genre, rating);
         return juego;
     }
 
@@ -117,27 +118,29 @@ public class JuegosDAO {
         return findJuegoByName(name);
     }
 
-    public Juegos createUser(String name, float price, int year, String developer, String genere, float valoracion) throws Exception {
-        String qry = "INSERT INTO juegos (name, price, year, developer, genere, valoracion) VALUES ('"
+    public Juegos createUser(String name, float price, int year, String developer, String genre, float rating)
+            throws Exception {
+        String qry = "INSERT INTO juegos (name, price, year, developer, genre, rating) VALUES ('"
                 + name + "', '"
                 + price + "', '"
                 + year + "', '"
                 + developer + "', '"
-                + genere + "', '"
-                + valoracion + "'"
+                + genre + "', '"
+                + rating + "'"
                 + ");";
         return createOrUpdateJuego(name, qry);
     }
 
-    public Juegos updateUser(int id, String name, float price, int year, String developer, String genere, float valoracion) throws Exception {
-        String qry = "INSERT INTO juegos (id, name, price, year, developer, genere, valoracion) VALUES ('"
+    public Juegos updateUser(int id, String name, float price, int year, String developer, String genre,
+            float rating) throws Exception {
+        String qry = "INSERT INTO juegos (id, name, price, year, developer, genre, rating) VALUES ('"
                 + id + "', '"
                 + name + "', '"
                 + price + "', '"
                 + year + "', '"
                 + developer + "', '"
-                + genere + "', '"
-                + valoracion + "'"
+                + genre + "', '"
+                + rating + "'"
                 + ");";
         return createOrUpdateJuego(name, qry);
     }

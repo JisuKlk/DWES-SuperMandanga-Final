@@ -37,20 +37,21 @@ public class JuegosServicio {
         return juego;
     }
 
-    public void addProduct(String name, float price, int year, String developer, String genere, float valoracion) {
+    public void addProduct(String name, float price, int year, String developer, String genre, float rating) {
         int id = contJuegos + 1;
         contJuegos += 1;
         try {
-            juegosDAOservice.createUser(name, price, year, developer, genere, valoracion);
+            juegosDAOservice.createUser(name, price, year, developer, genre, rating);
         } catch (Exception ex) {
             Logger.getLogger(JuegosServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    public void updateProduct(int id, String name, float price, int year, String developer, String genere, float valoracion) {
+    public void updateProduct(int id, String name, float price, int year, String developer, String genre,
+            float rating) {
         try {
-            juegosDAOservice.updateUser(id, name, price, year, developer, genere, valoracion);
+            juegosDAOservice.updateUser(id, name, price, year, developer, genre, rating);
         } catch (Exception ex) {
             Logger.getLogger(JuegosServicio.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,10 +82,11 @@ public class JuegosServicio {
         contJuegos -= 1;
     }
 
-    public void updateGame(int id, String name, float price, int year, String developer, String genere, float valoracion) {
+    public void updateGame(int id, String name, float price, int year, String developer, String genre,
+            float rating) {
 
         deleteGame(id);
-        updateProduct(id, name, price, year, developer, genere, valoracion);
+        updateProduct(id, name, price, year, developer, genre, rating);
 
     }
 
